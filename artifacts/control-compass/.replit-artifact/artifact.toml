@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Control Compass"
+version = "1.0.0"
+id = "artifacts/control-compass"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23751
+
+[services.development]
+run = "pnpm --filter @workspace/control-compass run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/control-compass", "run", "build" ]
+publicDir = "artifacts/control-compass/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23751"
+BASE_PATH = "/"

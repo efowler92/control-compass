@@ -25,3 +25,18 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - `pnpm --filter @workspace/api-server run dev` — run API server locally
 
 See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.
+
+## Artifacts
+
+### Control Compass (`artifacts/control-compass`)
+- **Type**: react-vite, frontend-only (no backend)
+- **Preview path**: `/`
+- **Purpose**: Small-business cybersecurity readiness checker
+- **Pages**:
+  - `/` — Landing page with hero and CTA
+  - `/assessment` — 12-question yes/no assessment, one at a time with progress bar
+  - `/results` — Results dashboard with score, risk level badge, category scores, top priority actions
+- **State**: All local React state via `AssessmentProvider` context (`src/lib/context.tsx`)
+- **Scoring**: Weighted (0–100), see `src/pages/results.tsx` for weights
+- **Risk levels**: Low (80–100), Moderate (60–79), High (0–59)
+- **No database, no auth, no API calls**

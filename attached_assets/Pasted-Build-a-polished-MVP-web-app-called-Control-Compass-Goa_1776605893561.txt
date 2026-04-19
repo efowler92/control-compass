@@ -1,0 +1,190 @@
+Build a polished MVP web app called **Control Compass**.
+
+## Goal
+
+Create a small-business cybersecurity readiness checker that feels professional, practical, and portfolio-worthy. The app should help a user answer a short assessment, calculate a readiness score, identify risk areas, and generate a prioritized action plan.
+
+This is an educational cyber/compliance-prep tool, not legal advice.
+
+## Product concept
+
+The app should let a user complete a short security assessment for their business or organization. Based on their answers, it should produce:
+
+* an overall readiness score from 0 to 100
+* a risk level: Low, Moderate, or High
+* category scores
+* a list of the most important next steps
+* a clean dashboard-style results page
+
+## Target user
+
+Small business owners, solo founders, freelancers, or very small teams who need basic cybersecurity and compliance readiness guidance in plain English.
+
+## Tech stack
+
+Use:
+
+* React
+* Tailwind CSS
+* clean component-based structure
+* local state only for MVP
+* no authentication yet
+* no database yet
+
+Build it so it runs cleanly in Replit.
+
+## App structure
+
+Create these sections/pages:
+
+### 1. Landing page
+
+Include:
+
+* app name: Control Compass
+* short tagline like: “A simple cybersecurity readiness check for small businesses”
+* short description of what it does
+* button to start assessment
+
+### 2. Assessment form
+
+Create a user-friendly questionnaire with around 12 yes/no questions.
+
+Use these questions:
+
+1. Is multi-factor authentication enabled for business email accounts?
+2. Are company devices encrypted?
+3. Are regular backups performed?
+4. Are backups tested periodically?
+5. Are systems and software patched on a schedule?
+6. Do employees use unique user accounts instead of shared logins?
+7. Are administrative privileges restricted to only those who need them?
+8. Is endpoint protection or antivirus installed on business devices?
+9. Is there a documented incident response process?
+10. Do employees receive phishing or security awareness training?
+11. Is sensitive customer or business data stored securely?
+12. Are third-party vendors reviewed before being given access to sensitive data?
+
+Make the form clean and modern, with clear labels and simple answer controls.
+
+### 3. Scoring logic
+
+Use weighted scoring. More important missing controls should reduce the score more heavily.
+
+Use this weighting model:
+
+* MFA enabled: 15 points
+* Device encryption: 10 points
+* Regular backups: 15 points
+* Backup testing: 8 points
+* Patch management: 10 points
+* Unique user accounts: 8 points
+* Restricted admin privileges: 10 points
+* Endpoint protection: 8 points
+* Incident response process: 8 points
+* Security awareness training: 4 points
+* Secure data storage: 8 points
+* Vendor review process: 6 points
+
+Total should equal 100.
+
+If the answer is “Yes,” award the points.
+If “No,” award zero points.
+
+### 4. Risk level rules
+
+Map the final score to:
+
+* 80–100 = Low Risk
+* 60–79 = Moderate Risk
+* 0–59 = High Risk
+
+### 5. Category breakdown
+
+Group questions into these control domains and show domain-level scores:
+
+* Access Control
+
+  * MFA
+  * Unique accounts
+  * Restricted admin privileges
+* Data Protection
+
+  * Device encryption
+  * Secure data storage
+* Resilience
+
+  * Backups
+  * Backup testing
+  * Incident response
+* Operational Security
+
+  * Patch management
+  * Endpoint protection
+  * Security awareness training
+* Third-Party Risk
+
+  * Vendor review
+
+### 6. Results page
+
+After submission, show:
+
+* overall readiness score
+* risk level badge
+* short explanation of what the score means
+* domain/category score cards
+* top 5 priority actions based on missing controls
+* a short disclaimer that the tool provides educational guidance, not legal or regulatory advice
+
+## Recommendation engine
+
+Generate recommendations dynamically based on “No” answers.
+
+Use practical plain-English recommendations like:
+
+* Enable multi-factor authentication for all business email and admin accounts
+* Turn on device encryption for laptops and mobile devices
+* Create regular backups and verify they can be restored
+* Establish a recurring patch schedule for systems and applications
+* Eliminate shared logins and assign each user a unique account
+* Limit administrator privileges to only essential personnel
+* Install and maintain endpoint protection on all devices
+* Create a basic incident response checklist for cyber events
+* Provide phishing and security awareness training
+* Review vendors before giving them access to sensitive systems or data
+
+Rank the most important recommendations first based on control weight.
+
+## Design requirements
+
+Make the UI feel modern, clean, and portfolio-ready.
+Use:
+
+* rounded cards
+* responsive layout
+* simple dashboard styling
+* readable typography
+* a polished but not overly flashy look
+
+The user experience should feel trustworthy and businesslike.
+
+## Code requirements
+
+* keep code organized and readable
+* split into reusable components where reasonable
+* include comments where helpful
+* avoid unnecessary complexity
+* make sure the scoring logic is easy to edit later
+
+## Nice-to-have if easy
+
+If there is time, also add:
+
+* a reset/restart assessment button
+* a printable summary section
+* a simple progress indicator during the questionnaire
+
+## Deliverable
+
+Produce the complete MVP code and file structure so the app runs immediately in Replit.
